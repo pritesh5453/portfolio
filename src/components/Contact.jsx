@@ -1,14 +1,16 @@
 import React from "react";
+import { IoMail, IoCallOutline, IoLocationSharp } from "react-icons/io5"; // ✅ Import icons
 
 const Contact = () => {
   const contact_info = [
-    { logo: "mail", text: "pawarpritesh90@gmail.com" },
-    { logo: "call-outline", text: "+91 8552011102" },
+    { icon: <IoMail />, text: "pawarpritesh90@gmail.com" },
+    { icon: <IoCallOutline />, text: "+91 8552011102" },
     {
-      logo: "location",
+      icon: <IoLocationSharp />,
       text: "Nashik, Maharashtra, India",
     },
   ];
+
   return (
     <section id="contact" className="py-10 px-3 text-white">
       <div className="text-center mt-8">
@@ -30,12 +32,7 @@ const Contact = () => {
             <input type="email" name="email" placeholder="Your Email Address" required />
             <textarea name="message" placeholder="Your Message" rows={10} required></textarea>
 
-            {/* Optional anti-spam hidden input */}
             <input type="hidden" name="_captcha" value="false" />
-            
-            {/* Optional: Redirect to thank you page */}
-            {/* <input type="hidden" name="_next" value="https://yourdomain.com/thankyou" /> */}
-
             <button className="btn-primary w-fit" type="submit">
               Send Message
             </button>
@@ -49,7 +46,7 @@ const Contact = () => {
                   text-left gap-4 flex-wrap items-center"
               >
                 <div className="min-w-[3.5rem] text-3xl min-h-[3.5rem] flex items-center justify-center text-white bg-cyan-600 rounded-full">
-                  <ion-icon name={contact.logo}></ion-icon>
+                  {contact.icon}
                 </div>
                 <p className="md:text-base text-sm break-words">
                   {contact.text}
